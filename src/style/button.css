@@ -1,0 +1,20 @@
+.btn-gold{
+    background: linear-gradient(165deg, #ffd25e 35.44%, #b59646 93.42%);
+    color: rgb(27, 25, 25);
+}
+
+.btn-gold:active, .btn-gold:hover, .btn-gold:focus{
+    color: #6d592a;
+}
+
+.btn-outline-warning{
+    outline-color: linear-gradient(165deg, #ffd25e 35.44%, #b59646 93.42%);
+    color: linear-gradient(165deg, #ffd25e 35.44%, #b59646 93.42%);
+    background: linear-gradient(165deg, #ffd25e 35.44%, #b59646 93.42%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.btn-outline-warning:hover{
+    background: linear-gradient(165deg, #ffd25e 35.44%, #b59646 93.42%);
+    -webkit-text-fill-color: rgb(27, 25, 25);
+}
