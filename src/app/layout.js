@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" data-bs-theme="dark">
             <head>
-            
+                
                 {/* Google tag (gtag.js) */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17638025195"></script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18423026020"></script>
                 <script dangerouslySetInnerHTML={{
                     __html: `
                     window.dataLayer = window.dataLayer || [];
