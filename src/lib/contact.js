@@ -1,0 +1,5 @@
+export const PHONE_NUMBER = "+77070421702";
+export const PHONE_DISPLAY = "+7 707 042 17 02";
+export const PHONE_HREF = `tel:${PHONE_NUMBER}`;
+export const GOOGLE_ADS_ID = "AW-18423026020";
+export const PHONE_CONVERSION_ID = "AW-18423026020/dVLYCLPlz4sdEOSi5NBE";

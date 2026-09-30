@@ -1,3 +1,4 @@
+import PhoneLink from "@/components/phone-link";
 import Link from "next/link";
 
 export default function Header() {
@@ -13,9 +14,9 @@ export default function Header() {
                 </div>
                 <div className="d-flex align-items-center">
                     <div>
-                        <Link href={"tel:+77070421702"} className="btn btn-gold m-0" style={{color: "rgb(27, 25, 25)"}}>
+                        <PhoneLink placement="header" className="btn btn-gold m-0" style={{color: "rgb(27, 25, 25)"}}>
                             <strong>Заказать услугу</strong>
-                        </Link>
+                        </PhoneLink>
                     </div>
                 </div>
             </div>

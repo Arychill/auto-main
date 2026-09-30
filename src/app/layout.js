@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Header from "@/components/header";
 import Script from "next/script";
+import { GOOGLE_ADS_ID } from "@/lib/contact";
 
 export const metadata = {
     title: "Gold Auto Service",
@@ -9,45 +10,33 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    return (
-        <html lang="en" data-bs-theme="dark">
-            <head>
-                
-                {/* Google tag (gtag.js) */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18423026020"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'AW-17638025195');
-                    `,
-                }} />
-                
+    const analyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+    const validAnalyticsId = /^G-[A-Z0-9]+$/.test(analyticsId || "");
+    const googleTagConfig = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GOOGLE_ADS_ID}');
+        ${validAnalyticsId ? `gtag('config', '${analyticsId}');` : ""}
+    `;
 
+    return (
+        <html lang="ru" data-bs-theme="dark">
+            <head>
                 <meta
                     name="google-site-verification"
                     content="Jlf-KXukVHwC2wEQfXvFD3Ykwsu0buUIUTpfHV_0HMM"
                 />
-                
-                <Script
-                    async
-                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-                />
-                <Script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                            page_path: window.location.pathname,
-                            });
-                        `,
-                    }}
-                />
             </head>
             <body>
+                <Script id="google-tag-init" strategy="beforeInteractive">
+                    {googleTagConfig}
+                </Script>
+                <Script
+                    id="google-tag-loader"
+                    src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+                    strategy="afterInteractive"
+                />
                 <Header />
                 <div className="">{children}</div>
             </body>

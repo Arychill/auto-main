@@ -1,4 +1,4 @@
-import Link from "next/link";
+import PhoneLink from "@/components/phone-link";
 
 export default function Services() {
     return (
@@ -23,9 +23,9 @@ export default function Services() {
                     <img src="/images/background.jpeg" className="img-fluid rounded" alt="" />
                 </div>
                 <div className="mb-5">
-                    <Link href={"tel:+77070178901"} className="btn btn-gold m-0 w-100">
+                    <PhoneLink placement="services" className="btn btn-gold m-0 w-100">
                         <strong>Позвонить</strong>
-                    </Link>
+                    </PhoneLink>
                 </div>
             </div>
         </div>
